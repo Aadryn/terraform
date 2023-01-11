@@ -1,6 +1,6 @@
 variable "naming_options" {
   type = object({
-    resource_name = optional(string, null)
+    resource_name = optional(string, "mg")
     suffix        = optional(string, null)
     prefix        = optional(string, null)
     separator     = optional(string, "-")
@@ -10,4 +10,15 @@ variable "naming_options" {
   })
   default     = {}
   description = "(Optional) Options to pass to the name generator"
+}
+
+variable "display_name" {
+  type        = string
+  description = "(Optional) The display name of the resource"
+}
+
+variable "parent_management_group_id" {
+  type        = string
+  default     = null
+  description = "(Optional) The ID of the parent management group. If not set, the resource will be created at the root level."
 }
